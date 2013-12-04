@@ -1,60 +1,49 @@
 /*
-			Jumping Poo
+		The Paint Bucket
 
-			Just proving to myself I can make a basic platformer in C++ with SDL 1.2
+		Coded by xXxRosexXxEE
 
-			you can do whatever you want with this source code couldn't care one bit!
-
-			Written by Rose Hughes aka Dominic Hughes
-
-			EMAIL: rose@the-flower-garden.co.uk
-			TWITTER: xXxRosexXxEE
-			WEBSITE: http://www.the-flower-garden.co.uk/
+		Designed by Rose Hughes
 */
 
-//MAIN HEADERS
-#include <SDL/SDL.h>
+//main headers
+#include <SDL2/SDL.h>
 #include <iostream>
 #include <math.h>
-#include <vector>
 #include <valarray>
+#include <vector>
 
-//USER HEADERS
+//user defined headers
 #include "Variables.hpp"
 #include "Objects.hpp"
 #include "SDL_Manager.hpp"
 #include "SDL_Manager.cpp"
-#include "Stages.hpp"
-#include "Stages.cpp"
-#include "Player.hpp"
-#include "Player.cpp"
+#include "Random_Shape_Generator.hpp"
+#include "Random_Shape_Generator.cpp"
+//#include "TPB_Color_Picker.hpp"
 
-#undef main
-int main(int argc , char *argv[])
+int main(int argc, char *argv[])
 {
     SDL_Manager.Switch(true);
 
     SDL_Manager.Setup(true);
 
-    while(Running)
+    while(Running == true)
     {
-        if(keystate[SDLK_END]) {
-            return 0;
-        }
-
         while(SDL_PollEvent(&event))
         {
-            switch(event.type) {
-
+            switch(event.type)
+            {
             case SDL_QUIT:
                 Running = false;
-                break;
-
-            default:
+                return 0;
                 break;
             }
         }
+
         SDL_Manager.RenderFrame(true);
+
     }
+
     return 0;
-}
+};

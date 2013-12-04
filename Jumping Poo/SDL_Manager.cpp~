@@ -1,0 +1,21 @@
+#include <SDL/SDL.h>
+#include <iostream>
+#include <math.h>
+#include <vector>
+#include <valarray>
+
+
+#ifndef _SDL_MANAGER_CPP_
+#define _SDL_MANAGER_CPP_
+
+bool SDL_Manager::Switch(bool Switch)
+{
+	if(Switch == true)
+	{
+
+	};
+}
+
+#endif
+
+

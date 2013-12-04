@@ -5,12 +5,10 @@
 #include <vector>
 
 #include "SDL_Manager.hpp"
-#include "Random_Shape_Generator.hpp"
 
 #ifndef _OBJECTS_HPP
 #define _OBJECTS_HPP
 
-SDL_Manager SDL_Manager;
-Shape_Generator Shape_Generator;
+	SDL_Manager SDL_Manager;
 
 #endif

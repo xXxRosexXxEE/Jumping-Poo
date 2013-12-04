@@ -1,28 +1,21 @@
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 #include <iostream>
 #include <math.h>
-#include <vector>
 #include <valarray>
+#include <vector>
 
+#ifndef _VARIABLES_HPP
+#define _VARIABLES_HPP
 
-#ifndef _VARIABLES_HPP_
-#define _VARIABLES_HPP_
-	
- bool 
- Running = true;
+SDL_Surface *TS, *MainMenu , *StartMenu;
 
- SDL_Event event;
+SDL_Event event;
 
-enum Player_Movement_Switch
-{
-	bool 
-	Up = false,
-	Down = false,
-	Jump = false,
-	Stand = true,
-	Left = false,
-	Right = false;
-	
-};
+bool
+Running = true;
+
+SDL_Renderer *MainRenderer = NULL;
+
+SDL_Window *MainWindow = NULL;
 
 #endif

@@ -1,12 +1,13 @@
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 #include <iostream>
 #include <math.h>
-#include <vector>
 #include <valarray>
+#include <vector>
 
 
-#ifndef _SDL_MANAGER_HPP_
-#define _SDL_MANAGER_HPP_
+#ifndef _SDL_MANAGER_HPP
+#define _SDL_MANAGER_HPP
+
 
 struct SDL_Manager
 {
@@ -14,8 +15,4 @@ struct SDL_Manager
     bool Setup(bool Switch);
     bool RenderFrame(bool Switch);
 };
-
 #endif
-
-
-
