@@ -1,51 +1,49 @@
-#include <SDL2/SDL.h>
+#include <SDL/SDL.h>	
+#include <SDL/SDL_image.h>
 #include <iostream>
 #include <math.h>
-#include <valarray>
 #include <vector>
-
-#include "SDL_Manager.hpp"
-#include "Objects.hpp"
-
-#ifndef _SDL_MANAGER_CPP
-#define _SDL_MANAGER_CPP
+#include <valarray>
 
 
-bool SDL_Manager::Switch(bool Switch) {
+#include "Variables.hpp"
 
-    if(Switch == true)
-    {
-        SDL_Init(SDL_INIT_EVERYTHING);
-    };
+#ifndef _SDL_MANAGER_CPP_
+#define _SDL_MANAGER_CPP_
+
+bool SDL_Manager::Switch(bool Switch)
+{
+	if(Switch == true)
+	{
+		SDL_Init(SDL_INIT_EVERYTHING);
+		SDL_WM_SetCaption("Jumping Poo 1.0 "," JP");
+	};
 }
 
-bool SDL_Manager::Setup(bool Switch) {
-
-    if(Switch == true)
-    {
-        MainWindow = SDL_CreateWindow("The Paint Bucket",
-                                      SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                                      640, 480,
-                                      SDL_WINDOW_SHOWN );
-
-        MainRenderer = SDL_CreateRenderer(MainWindow, -1, SDL_RENDERER_ACCELERATED);
-
-        SDL_SetRenderDrawColor(MainRenderer, 10*sin(2), 0 ,0 ,255);
-    };
+bool SDL_Manager::Setup(bool Switch)
+{
+	if(Switch == true)
+	{
+		GameSurface::MainSurface = SDL_SetVideoMode(640,480,32,SDL_SWSURFACE);
+		GameSurface::PlayerSurface = IMG_Load("poo.png");
+		GameSurface::TitleScreenBG = IMG_Load("tsbg.png");
+	}
 }
 
-bool SDL_Manager::RenderFrame(bool Switch) {
-
-    if(Switch == true)
-    {
-        SDL_RenderClear(MainRenderer);
-
-	Shape_Generator.Square(10,10,0xff0000);
-
-        SDL_RenderPresent(MainRenderer);
-
-    };
+ bool SDL_Manager::RenderFrame(bool Switch)
+{
+	if(Switch == true)
+	{
+		SDL_FillRect(GameSurface::MainSurface, NULL , 0xFFFFFF);
+		
+		SDL_BlitSurface(GameSurface::TitleScreenBG,NULL,GameSurface::MainSurface,NULL);
+		
+		Stage.One(true);
+		
+		SDL_Flip(GameSurface::MainSurface);
+	}
 }
-
 
 #endif
+
+

@@ -1,16 +1,18 @@
-#include <SDL2/SDL.h>
+#include <SDL/SDL.h>
 #include <iostream>
 #include <math.h>
-#include <valarray>
 #include <vector>
+#include <valarray>
 
 #include "SDL_Manager.hpp"
-#include "Random_Shape_Generator.hpp"
+#include "Player.hpp"
+#include "Stages.hpp"
 
-#ifndef _OBJECTS_HPP
-#define _OBJECTS_HPP
+#ifndef _OBJECTS_HPP_
+#define _OBJECTS_HPP_
 
-SDL_Manager SDL_Manager;
-Shape_Generator Shape_Generator;
-
+	SDL_Manager SDL_Manager;
+	Player Player;
+	Stage Stage;
+	
 #endif
